@@ -59,7 +59,7 @@ public class PublicationMetierImpl implements PublicationMetier{
 	@Override
 	public List<Publication> getPubsLast() {
 		
-		LocalDate baseDate = LocalDate.now().minusDays(8);
+		LocalDate baseDate = LocalDate.now().minusDays(7);
 		Date date = java.sql.Date.valueOf(baseDate);
 		String dateFormated = df.format(date);
 

@@ -2,6 +2,7 @@ package com.TamarinES.Utility;
 
 import java.util.Date;
 
+
 public  final class Convertion {
 	
 	public static boolean checkStringNotNullNotEmpty(String val) {
@@ -14,6 +15,7 @@ public  final class Convertion {
 	
 	public static boolean checkDateNotNull(Date val) {
 		return (val != null) ? true : false;
-	}
+	}	
+	
 
 }

@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-// >bin\logstash.bat -f logstash.conf
+
 @Document(indexName = "doc_publication", type = "publication")
 public class Publication {
 	
@@ -35,7 +35,7 @@ public class Publication {
 	
 	private String type_publication;
 	
-	public Integer user;
+	private Integer user;
 	
 	private Float minPrice;
 	
