@@ -2,19 +2,19 @@ package com.TamarinES.Metier;
 
 import java.util.List;
 
-import com.TamarinES.Entity.Publication;
+import com.TamarinES.Entity.PublicationDto;
 
 
 public interface PublicationMetier {
 
-	public List<Publication> getPubs();
+	public List<PublicationDto> getPubs();
 
-	public Publication getPubById(int pubId);
+	public PublicationDto getPubById(int pubId);
 
-	public List<Publication> getPubsLast();
+	public List<PublicationDto> getPubsLast();
 	
-	public List<Publication> getPubsByUser(Integer userId);
+	public List<PublicationDto> getPubsByUser(Integer userId);
 
-	public List<Publication> getPubsByParams(Publication publication);
+	public List<PublicationDto> getPubsByParams(PublicationDto publicationDto);
 
 }

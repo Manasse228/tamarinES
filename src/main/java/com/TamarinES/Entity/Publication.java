@@ -5,41 +5,41 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Document(indexName = "doc_publication", type = "publication")
 public class Publication {
-	
+
 	@Id
 	private int idpub;
-	
 	private Date departure_date;
-
 	private Date arrival_date;
-
 	private String departure_town;
-
 	private String arrival_town;
-
 	private String type_packet;
-
 	private Boolean local_action;
-
 	private Float price;
-
 	private Date publication_date;
-	
 	private Boolean div_weight;
-	
 	private Float weight;
-	
 	private String type_publication;
-	
 	private Integer user;
-	
 	private Float minPrice;
-	
 	private Float maxPrice;
+
+	private Integer user_id;
+	private Boolean active;
+	private Date birth_day;
+	private String email;
+	private String first_name;
+	private String last_name;
+	private Integer note;
+	private String phone_number;
+	private String pseudo;
+	private String photo;
+	private Boolean verif;
+
+	public Publication() {
+		super();
+	}
 
 	public int getIdpub() {
 		return idpub;
@@ -89,11 +89,11 @@ public class Publication {
 		this.type_packet = type_packet;
 	}
 
-	public Boolean getLocal_action() {
+	public Boolean getLocalAction() {
 		return local_action;
 	}
 
-	public void setLocal_action(Boolean local_action) {
+	public void setLocalAction(Boolean local_action) {
 		this.local_action = local_action;
 	}
 
@@ -145,7 +145,6 @@ public class Publication {
 		this.user = user;
 	}
 
-	@JsonIgnore
 	public Float getMinPrice() {
 		return minPrice;
 	}
@@ -154,7 +153,6 @@ public class Publication {
 		this.minPrice = minPrice;
 	}
 
-	@JsonIgnore
 	public Float getMaxPrice() {
 		return maxPrice;
 	}
@@ -163,13 +161,106 @@ public class Publication {
 		this.maxPrice = maxPrice;
 	}
 
+	public Integer getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public Date getBirth_day() {
+		return birth_day;
+	}
+
+	public void setBirth_day(Date birth_day) {
+		this.birth_day = birth_day;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public Integer getNote() {
+		return note;
+	}
+
+	public void setNote(Integer note) {
+		this.note = note;
+	}
+
+	public String getPhone_number() {
+		return phone_number;
+	}
+
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public Boolean getVerif() {
+		return verif;
+	}
+
+	public void setVerif(Boolean verif) {
+		this.verif = verif;
+	}
+
 	@Override
 	public String toString() {
 		return "Publication [idpub=" + idpub + ", departure_date=" + departure_date + ", arrival_date=" + arrival_date
 				+ ", departure_town=" + departure_town + ", arrival_town=" + arrival_town + ", type_packet="
 				+ type_packet + ", local_action=" + local_action + ", price=" + price + ", publication_date="
 				+ publication_date + ", div_weight=" + div_weight + ", weight=" + weight + ", type_publication="
-				+ type_publication + ", user=" + user + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice + "]";
+				+ type_publication + ", user=" + user + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice
+				+ ", user_id=" + user_id + ", active=" + active + ", birth_day=" + birth_day + ", email=" + email
+				+ ", first_name=" + first_name + ", last_name=" + last_name + ", note=" + note + ", phone_number="
+				+ phone_number + ", pseudo=" + pseudo + ", photo=" + photo + ", verif=" + verif + "]";
 	}
 
+	
+	
 }
