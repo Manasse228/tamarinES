@@ -7,6 +7,6 @@ import com.TamarinES.Entity.Publication;
 
 
 @Repository
-public interface PublicationRepository extends ElasticsearchRepository<Publication, String>{
+public interface PublicationRepository extends ElasticsearchRepository<Publication, Integer>{
 
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class PublicationDto {
 	
-	private int idPub;
+	private Integer idPub;
 	private Date departureDate;
 	private Date arrivalDate;
 	private String departureTown;
@@ -21,7 +21,7 @@ public class PublicationDto {
 	private Float totalPrice;
 	private String statutPublication;
 	
-	private int idUser;
+	private Integer idUser;
 	private String pseudo;
 	private String lastName;
 	private String firstName;
@@ -37,11 +37,11 @@ public class PublicationDto {
 		super();
 	}
 
-	public int getIdPub() {
+	public Integer getIdPub() {
 		return idPub;
 	}
 	
-	public void setIdPub(int idPub) {
+	public void setIdPub(Integer idPub) {
 		this.idPub = idPub;
 	}
 	
@@ -165,11 +165,11 @@ public class PublicationDto {
 		this.statutPublication = statutPublication;
 	}
 	
-	public int getIdUser() {
+	public Integer getIdUser() {
 		return idUser;
 	}
 	
-	public void setIdUser(int idUser) {
+	public void setIdUser(Integer idUser) {
 		this.idUser = idUser;
 	}
 	

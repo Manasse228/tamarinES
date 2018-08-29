@@ -9,7 +9,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class Publication {
 
 	@Id
-	private int idpub;
+	private Integer idpub;
 	private Date departure_date;
 	private Date arrival_date;
 	private String departure_town;
@@ -41,11 +41,11 @@ public class Publication {
 		super();
 	}
 
-	public int getIdpub() {
+	public Integer getIdpub() {
 		return idpub;
 	}
 
-	public void setIdpub(int idpub) {
+	public void setIdpub(Integer idpub) {
 		this.idpub = idpub;
 	}
 
@@ -89,11 +89,12 @@ public class Publication {
 		this.type_packet = type_packet;
 	}
 
-	public Boolean getLocalAction() {
+	//local_action getDiv_weight
+	public Boolean getLocal_action() {
 		return local_action;
 	}
 
-	public void setLocalAction(Boolean local_action) {
+	public void setLocal_action(Boolean local_action) {
 		this.local_action = local_action;
 	}
 

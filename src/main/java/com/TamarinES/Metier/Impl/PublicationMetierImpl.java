@@ -83,8 +83,8 @@ public class PublicationMetierImpl implements PublicationMetier {
 		Publication publication = convertDtoToEntity(publicationDto);
 
 		// Action local
-		if ((Boolean) publication.getLocalAction() != null) {
-			criteria.and(new Criteria("local_action").is(publication.getLocalAction()));
+		if ((Boolean) publication.getLocal_action() != null) {
+			criteria.and(new Criteria("local_action").is(publication.getLocal_action()));
 		}
 
 		// Divide Weight is allow
@@ -143,13 +143,14 @@ public class PublicationMetierImpl implements PublicationMetier {
 		} // Si seule la Date départ est renseignée
 		else if (Convertion.checkDateNotNull(publication.getDeparture_date())
 				&& !Convertion.checkDateNotNull(publication.getArrival_date())) {
-
-			criteria.and(new Criteria("departure_date").greaterThanEqual(df.format(publication.getDeparture_date())));
+			//criteria.and(new Criteria("departure_date").greaterThanEqual(df.format(publication.getDeparture_date())));
+			criteria.and(new Criteria("departure_date").expression(df.format(publication.getDeparture_date())));
 
 		} // Si seule la Date arrivée est renseignée
 		else if (!Convertion.checkDateNotNull(publication.getDeparture_date())
 				&& Convertion.checkDateNotNull(publication.getArrival_date())) {
-			criteria.and(new Criteria("arrival_date").greaterThanEqual(df.format(publication.getArrival_date())));
+			//criteria.and(new Criteria("arrival_date").greaterThanEqual(df.format(publication.getArrival_date())));
+			criteria.and(new Criteria("arrival_date").expression(df.format(publication.getArrival_date())));
 		}
 
 		CriteriaQuery criteriaQuery = new CriteriaQuery(criteria).setPageable(PageRequest.of(0, 10000));
@@ -163,13 +164,13 @@ public class PublicationMetierImpl implements PublicationMetier {
 	public List<Publication> getPubList(SearchQuery searchQuery) { 
 		Page<Publication> pubPage = esTemplate.queryForPage(searchQuery, Publication.class);
 		List<Publication> samplePub = pubPage.getContent();
-
 		return samplePub;
 	}
 	
 	public PublicationDto convertEntityToDto(Publication publication) {
 		PublicationDto publicationDto = new PublicationDto();
-		
+
+		publicationDto.setIdPub(publication.getIdpub());
 		publicationDto.setActive(publication.getActive());
 		publicationDto.setArrivalDate(publication.getArrival_date());
 		publicationDto.setArrivalTown(publication.getArrival_town());
@@ -182,7 +183,7 @@ public class PublicationMetierImpl implements PublicationMetier {
 		publicationDto.setIdPub(publication.getIdpub());
 		publicationDto.setIdUser(publication.getUser_id());
 		publicationDto.setLastName(publication.getLast_name());
-		publicationDto.setLocalAction(publication.getLocalAction());
+		publicationDto.setLocalAction(publication.getLocal_action());
 		publicationDto.setMaxPrice(publication.getMaxPrice());
 		publicationDto.setMinPrice(publication.getMinPrice());
 		publicationDto.setNote(publication.getNote());
@@ -197,13 +198,14 @@ public class PublicationMetierImpl implements PublicationMetier {
 		publicationDto.setTypePublication(publication.getType_publication());
 		publicationDto.setVerif(publication.getVerif());
 		publicationDto.setWeight(publication.getWeight());
-		
+
 		return publicationDto;
 	}
 	
 	public Publication convertDtoToEntity(PublicationDto publicationDto) {
 		Publication publication = new Publication();
 		
+		publication.setIdpub(publicationDto.getIdPub());
 		publication.setActive(publicationDto.getActive());
 		publication.setArrival_date(publicationDto.getArrivalDate());
 		publication.setArrival_town(publicationDto.getArrivalTown());
@@ -215,7 +217,7 @@ public class PublicationMetierImpl implements PublicationMetier {
 		publication.setFirst_name(publicationDto.getFirstName());
 		publication.setIdpub(publicationDto.getIdPub());
 		publication.setLast_name(publicationDto.getLastName());
-		publication.setLocalAction(publicationDto.getLocalAction());
+		publication.setLocal_action(publicationDto.getLocalAction());
 		publication.setMaxPrice(publicationDto.getMaxPrice());
 		publication.setMinPrice(publicationDto.getMinPrice());
 		publication.setNote(publicationDto.getNote());
