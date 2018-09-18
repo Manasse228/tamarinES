@@ -33,11 +33,13 @@ public class PublicationMetierImpl implements PublicationMetier {
 	private ElasticsearchTemplate esTemplate;
 
 	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	PageRequest pageRequest = new PageRequest(0, 10000);
 
 	@Override
 	public List<PublicationDto> getPubs() {
 		SearchQuery getAllQuery = new NativeSearchQueryBuilder().withQuery(matchAllQuery()).build()
-				.setPageable(PageRequest.of(0, 10000)).addSort(new Sort(Sort.Direction.ASC, "idpub"));
+				.setPageable(pageRequest).addSort(new Sort(Sort.Direction.ASC, "idpub"));
+				//.setPageable(PageRequest.of(0, 10000)).addSort(new Sort(Sort.Direction.ASC, "idpub"));
 
 		return convertListEntityToDto(getPubList(getAllQuery));
 	}
@@ -63,7 +65,8 @@ public class PublicationMetierImpl implements PublicationMetier {
 
 		SearchQuery searchQuery = new NativeSearchQueryBuilder()
 				.withFilter(QueryBuilders.rangeQuery("publication_date").from(dateFormated).to("now")).build()
-				.setPageable(PageRequest.of(0, 10000)).addSort(new Sort(Sort.Direction.ASC, "publication_date"));
+				.setPageable(pageRequest).addSort(new Sort(Sort.Direction.ASC, "publication_date"));
+				//.setPageable(PageRequest.of(0, 10000)).addSort(new Sort(Sort.Direction.ASC, "publication_date"));
 
 		return convertListEntityToDto(getPubList(searchQuery));
 	}
@@ -71,8 +74,8 @@ public class PublicationMetierImpl implements PublicationMetier {
 	@Override
 	public List<PublicationDto> getPubsByUser(Integer userId) {
 		SearchQuery searchQuery = new NativeSearchQueryBuilder().withFilter(QueryBuilders.matchQuery("user", userId))
-				.build().setPageable(PageRequest.of(0, 10000));
-
+				.build().setPageable(pageRequest);
+				//.build().setPageable(PageRequest.of(0, 10000));
 		return convertListEntityToDto(getPubList(searchQuery));
 	}
 
@@ -153,7 +156,8 @@ public class PublicationMetierImpl implements PublicationMetier {
 			criteria.and(new Criteria("arrival_date").expression(df.format(publication.getArrival_date())));
 		}
 
-		CriteriaQuery criteriaQuery = new CriteriaQuery(criteria).setPageable(PageRequest.of(0, 10000));
+		//CriteriaQuery criteriaQuery = new CriteriaQuery(criteria).setPageable(PageRequest.of(0, 10000));
+		CriteriaQuery criteriaQuery = new CriteriaQuery(criteria).setPageable(pageRequest);
 
 		Page<Publication> pubPage = esTemplate.queryForPage(criteriaQuery, Publication.class);
 		List<Publication> samplePub = pubPage.getContent();
