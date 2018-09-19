@@ -1,0 +1,8 @@
+com\TamarinES\Dao\PublicationRepository.class
+com\TamarinES\Service\PublicationRestService.class
+com\TamarinES\TamarinEsApplication.class
+com\TamarinES\Entity\PublicationDto.class
+com\TamarinES\Utility\Convertion.class
+com\TamarinES\Entity\Publication.class
+com\TamarinES\Metier\PublicationMetier.class
+com\TamarinES\Metier\Impl\PublicationMetierImpl.class

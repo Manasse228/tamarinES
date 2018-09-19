@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.TamarinES.Entity.PublicationDto;
 import com.TamarinES.Metier.PublicationMetier;
 import com.TamarinES.Utility.Convertion;
-
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @RestController
+@EnableEurekaClient
 public class PublicationRestService {
 	
 	@Autowired
