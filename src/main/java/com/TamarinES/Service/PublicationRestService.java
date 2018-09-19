@@ -77,8 +77,6 @@ public class PublicationRestService {
 		PublicationDto publicationDto = new PublicationDto();
 
 		checkPubParams(publicationDto, dateDep, dateArr, userId);
-		
-		
 
 		publicationDto.setArrivalTown(villeArr);
 		publicationDto.setDepartureTown(villeDepart);
