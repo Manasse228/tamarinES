@@ -2,6 +2,7 @@ package com.TamarinES.Metier.Impl;
 
 import static org.elasticsearch.index.query.QueryBuilders.matchAllQuery;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -84,7 +85,10 @@ public class PublicationMetierImpl implements PublicationMetier {
 
 		Criteria criteria = new Criteria();
 		Publication publication = convertDtoToEntity(publicationDto);
-
+		
+		System.out.println("Hey "+publication.toString());
+		System.out.println("Hey ok "+publicationDto.toString());
+		
 		// Action local
 		if ((Boolean) publication.getLocal_action() != null) {
 			criteria.and(new Criteria("local_action").is(publication.getLocal_action()));
