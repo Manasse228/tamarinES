@@ -1,0 +1,25 @@
+localhost:8888/pubList 
+Permet de renvoyer toutes les publications de la base de données  
+[GET] 
+
+localhost:8888/pubById?idPub=18
+Renvoie la publication dont l’identification est 18  
+[GET] 
+ 
+localhost:8888/lastPubList 
+Renvoie les dernières publications, c’est-à-dire que les publications vielles d’une semaine 
+Nous sommes le 19/09 , cette requête vas renvoyer toutes les publications qui ont lieu entre le 12/09 et le 19/09 
+[GET] 
+
+localhost:8888/pubByUserId?idUser=8 
+Cette requête renvoie les publications de l’utilisateur dont l’ID est égal à 8 
+[GET]
+
+localhost:8888/listPubByParameters?dateArr=2018-10-12& dateDep=2018-10-10&actionLocal=true&villeArr=Caen&villeDepart=New_York&prixInf=3&prixSup=4.86&typePub=Proposition&typeColis=Grand&poids=95&poidsDiv=false&idUser=7
+Si dateDep seule est renseignée il cherchera les publications qui ont pour Date Départ cette date 
+Si dateArr seule est renseignée il cherchera les publications qui ont pour Date Arrivée cette date 
+Si la dateDep et la dateArr sont renseignées la requête cherchera les publications dont leur date départ est comprise entre dateDep et la dateArr et les publications dont leur date d’arrivée est comprise entre dateDep et la dateArr
+typeColis [Grand , Petit, Moyen]  Je sais pas si l’attribut typeColis est encore d’actualité  
+[GET]
+ 
+ 
