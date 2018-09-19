@@ -72,7 +72,7 @@ public class PublicationRestService {
 			@RequestParam(value = "typeColis",   required = false, defaultValue = "")     String typeColis,
 			@RequestParam(value = "poids",       required = false, defaultValue = "0.0f") Float poids,
 			@RequestParam(value = "userId",      required = false, defaultValue = "")     Integer userId,
-			@RequestParam(value = "poidsDiv",    required = false, defaultValue = "true") Boolean poidsDiv) {
+			@RequestParam(value = "poidsDiv",    required = false, defaultValue = "")     Boolean poidsDiv) {
 		
 		PublicationDto publicationDto = new PublicationDto();
 
